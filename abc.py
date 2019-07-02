@@ -4,5 +4,5 @@ class ABC:
     '''
     Abstract Baseline Class
     '''
-    def __init__(self):
+    def __init__(self, **kwargs):
         '''init'''
