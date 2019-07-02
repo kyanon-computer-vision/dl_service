@@ -1,0 +1,1 @@
+'''All constants in this project are defined here'''
