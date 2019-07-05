@@ -1,5 +1,6 @@
 
 from abc import ABC
+from utils.thread_utils import TrainingThread
 
 class BaseModel(ABC):
     '''Base model, most of functions use Keras API'''
@@ -16,16 +17,16 @@ class BaseModel(ABC):
         '''
         train model with a generator
         ----------------------------------
-        generator: train generator for training model
+        generator: train generator for training model, Keras ImageDataGenerator is also approved
         batch_size: batch of size
         epochs
-        validation_generator: wheather use validation or not
+        validation_generator: wheather use validation or not, Keras ImageDataGenerator is also approved
         callbacks: list, callable functions
         -----------------------------------
         Return:
         history
         '''
-
+        
         return None
     
     def evaluate_generator(self, generator, batch_size, verbose=0, **kwargs):
