@@ -11,7 +11,7 @@ class BaseModel(ABC):
     def compile(self, loss, optimizer, metrics):
         '''compile model'''
 
-        return None
+        pass
 
     def fit_generator(self, generator, batch_size, epochs, validation_generator=None, callbacks=None, verbose=1, **kwargs):
         '''
@@ -27,22 +27,22 @@ class BaseModel(ABC):
         history
         '''
         
-        return None
+        pass
     
     def evaluate_generator(self, generator, batch_size, verbose=0, **kwargs):
         '''
         evaluate model
         return score which has loss and accuracy
         '''
-        return None
+        pass
 
     def predict_generator(self, generator, batch_size=1, **kwargs):
 
-        return None
+        pass
 
     def single_predict(self, item, **kwargs):
 
-        return None
+        pass
         
 
 class BaseModelBuilder(ABC):
@@ -51,7 +51,7 @@ class BaseModelBuilder(ABC):
 
     def build(self, **kwargs):
         ''''''
-        return None
+        pass
 
 class SkippedVGGBuilder(BaseModel):
     def __init__(self, **kwargs):
@@ -71,13 +71,13 @@ class SkippedVGGBuilder(BaseModel):
         -----------------------------------
         Return: Keras model
         '''
-        return None
+        pass
 
     def _define_block(self, input_layer, nb_layers, nb_neurons, kernel_size=(3,3), batch_normalization=True, activation='relu', **kwargs):
-        return None
+        pass
 
     def _define_skipped_connection(self, src_layer, dst_layer):
-        return None
+        pass
     
 
 
