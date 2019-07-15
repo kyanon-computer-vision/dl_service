@@ -48,36 +48,13 @@ class BaseModel(ABC):
 class BaseModelBuilder(ABC):
     def __init__(self, **kwargs):
         super(BaseModelBuilder, **kwargs).__init__(**kwargs)
+        self.model = None
 
     def build(self, **kwargs):
         ''''''
         pass
 
-class SkippedVGGBuilder(BaseModel):
-    def __init__(self, **kwargs):
-        super(SkippedVGGBuilder, self).__init__(**kwargs)
 
-    def build(self, nb_blocks, input_shape, num_classes, nb_layers, nb_neurons, include_top=True, verbose=1, **kwargs):
-        '''
-        Build Skipped VGG model
-        ----------------------------------
-        nb_blocks: number of block in model
-        input_shape: tuple, size of 3, not include batch size
-        num_classes: number of model output
-        nb_layers:  list, nb of conv layer in each block; 
-                    if scalar, then all blocks are used the same number of conv layer
-        nb_neurons: list, nb of conv neuron in each block
-        include_top: wheather the model include classifier or not
-        -----------------------------------
-        Return: Keras model
-        '''
-        pass
-
-    def _define_block(self, input_layer, nb_layers, nb_neurons, kernel_size=(3,3), batch_normalization=True, activation='relu', **kwargs):
-        pass
-
-    def _define_skipped_connection(self, src_layer, dst_layer):
-        pass
     
 
 
