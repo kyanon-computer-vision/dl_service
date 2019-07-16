@@ -4,9 +4,11 @@ from abc import ABC
 
 class ThreadHandler(ABC):
     '''Manage all thread defined by classes'''
+
     def __init__(self, **kwargs):
         super(ThreadHandler, self).__init__(**kwargs)
         self._threads = []
+
 
 class BaseThread(threading.Thread):
     def __init__(self, thread_handler, target_func, *args, **kwargs):
@@ -18,7 +20,7 @@ class BaseThread(threading.Thread):
 
     def run(self):
         self._target(*self._args, **self._kwargs)
-    
+
 
 class TrainingThread(BaseThread):
     '''
@@ -29,11 +31,14 @@ class TrainingThread(BaseThread):
     *args: arguments for target_function
     **kwargs: arguments for target_function
     '''
+
     def __init__(self, thread_handler, target_func, *args, **kwargs):
-        super(TrainingThread, self).__init__(thread_handler, target_func, *args, **kwargs)
+        super(TrainingThread, self).__init__(
+            thread_handler, target_func, *args, **kwargs)
+
 
 class UploadingThread(threading.Thread):
-        '''
+    '''
     Class handle thread for uploading data.
     ----------------------------------------
     target_func: upload function for data
@@ -44,7 +49,7 @@ class UploadingThread(threading.Thread):
         super(UploadingThread, self).__init__(thread_handler, target_func, *args, **kwargs)
 
 class EvaluatingThread(threading.Thread):
-        '''
+    '''
     Class handle thread for evaluating model.
     ----------------------------------------
     target_func: evaluate model function
