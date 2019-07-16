@@ -2941,5 +2941,16 @@
     "CSharpLanguageVersion": 703
   },
   "RootNamespace": "backend",
-  "Documents": []
+  "Documents": [
+    {
+      "FilePath": "Pages/Error.cshtml",
+      "TargetPath": "Pages/Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Pages/_ViewImports.cshtml",
+      "TargetPath": "Pages/_ViewImports.cshtml",
+      "FileKind": "mvc"
+    }
+  ]
 }

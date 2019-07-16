@@ -117,7 +117,7 @@ class SkippedVGGBuilder(BaseModelBuilder):
 
         self.model = Model(inputs=inputs, outputs=outputs)
 
-        # compile
+        # compileext install k--kato.docomment
         self.model.compile(loss=categorical_crossentropy,
                            optimizer=Adam(), metrics=['accuracy'])
 
