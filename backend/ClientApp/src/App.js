@@ -1,20 +1,30 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router';
-import { Layout } from './components/Layout';
-import { Home } from './components/Home';
-import { FetchData } from './components/FetchData';
-import { Counter } from './components/Counter';
+// --- Post bootstrap -----
+import ProductCategories from './components/landing/modules/views/ProductCategories';
+import ProductSmokingHero from './components/landing/modules/views/ProductSmokingHero';
+import AppFooter from './components/landing/modules/views/AppFooter';
+import ProductHero from './components/landing/modules/views/ProductHero';
+import ProductValues from './components/landing/modules/views/ProductValues';
+import ProductHowItWorks from './components/landing/modules/views/ProductHowItWorks';
+import ProductCTA from './components/landing/modules/views/ProductCTA';
+import AppAppBar from './components/landing/modules/views/AppAppBar';
+
 
 export default class App extends Component {
   static displayName = App.name;
 
   render () {
     return (
-      <Layout>
-        <Route exact path='/' component={Home} />
-        <Route path='/counter' component={Counter} />
-        <Route path='/fetch-data' component={FetchData} />
-      </Layout>
+      <React.Fragment>
+        <AppAppBar />
+        <ProductHero />
+        <ProductValues />
+        <ProductCategories />
+        <ProductHowItWorks />
+        <ProductCTA />
+        <ProductSmokingHero />
+        <AppFooter />
+      </React.Fragment>
     );
   }
 }
