@@ -1,6 +1,7 @@
 #static
 STC_MIN_LEN_USERNAME = 8
 STC_TOKEN_EXPIRY_DATE = 30
+STC_DEFAUL_PROFILE_IMG = ''
 
 # messages
 MSG_USER_NOT_EMPTY  = 'Users must have a username.'

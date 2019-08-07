@@ -4,4 +4,5 @@ from .views import LoginAPIView, RegistrationAPIView
 urlpatterns = [
     url('registration/', RegistrationAPIView.as_view()),
     url('auth/', LoginAPIView.as_view()),
+    # TODO: refresh token
 ]
