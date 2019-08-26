@@ -1,3 +1,4 @@
+from django.views.decorators.csrf import csrf_exempt
 from rest_framework import status
 from rest_framework.generics import RetrieveUpdateAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
@@ -12,13 +13,11 @@ class RegistrationAPIView(APIView):
     permission_classes  = (AllowAny,)
     renderer_classes    = (UserJSONRenderer,)
     serializer_class    = RegistrationSerializer
-
+    
+    @csrf_exempt
     def post(self, request):
         user = request.data.get('user', {})
 
-        # The create serializer, validate serializer, save serializer pattern
-        # below is common and you will see it a lot throughout this course and
-        # your own work later on. Get familiar with it.
         serializer = self.serializer_class(data=user)
         serializer.is_valid(raise_exception=True)
         serializer.save()
@@ -29,7 +28,8 @@ class LoginAPIView(APIView):
     permission_classes  = (AllowAny,)
     renderer_classes    = (UserJSONRenderer,)
     serializer_class    = LoginSerializer
-
+    
+    @csrf_exempt
     def post(self, request):
         user = request.data.get('user', {})
 

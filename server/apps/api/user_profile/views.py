@@ -1,4 +1,4 @@
-from rest_framework import serializers, status
+from rest_framework import status
 from rest_framework.exceptions import NotFound
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
@@ -12,7 +12,8 @@ from .exceptions import ProfileDoesNotExits
 
 class ProfileRetrieveAPIView(RetrieveAPIView):
     permission_classes = (AllowAny,)
-    queryset = Profile.objects.slected_related('user')
+    queryset = Profile.objects.select_related('user')
+    # queryset = Profile.objects.filter('user')
     renderer_classes = (ProfileJSONRenderer,)
     serializer_class = ProfileSerializer
 
