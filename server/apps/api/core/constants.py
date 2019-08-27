@@ -19,7 +19,7 @@ CHOICES_DS_STATUS = (
 )
 
 DEFAULT_VISION_MODEL_TYPE = 0
-CHOICES_VISION_MODE_TYPE = (
+CHOICES_VISION_MODEL_TYPE = (
     (0, 'Classification'),
     (1, 'Object Detection'),
     (2, 'Segmentation')
