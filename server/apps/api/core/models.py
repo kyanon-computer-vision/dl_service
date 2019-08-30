@@ -16,6 +16,12 @@ class StringObject(models.Model):
     class_name = models.CharField(max_length=30)
     class Meta:
         abstract = True
+
+class Metrics(models.Model):
+    metric_name = models.CharField(max_length=30)
+    value       = models.FloatField()
+    class Meta:
+        abstract = True
     
 class BaseDataset(TimestampedModel):
     user            = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=False)
@@ -30,8 +36,12 @@ class BaseDataset(TimestampedModel):
         abstract = True
 
 class BaseDLModel(TimestampedModel):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=False)
     name = models.CharField(max_length=100)
+    description = models.TextField(blank=True, default='')
+    metrics = models.ArrayModelField(model_container=Metrics)
+    running_task = models.CharField()
     
+
     class Meta:
         abstract = True

@@ -24,3 +24,9 @@ CHOICES_VISION_MODEL_TYPE = (
     (1, 'Object Detection'),
     (2, 'Segmentation')
 )
+
+USER_SUBSCRIPTION = (
+    ('F', 'Free'),
+    ('P', 'Premium'),
+    ('E', 'Enterprise')
+)

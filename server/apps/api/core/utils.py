@@ -1,5 +1,6 @@
 import re
 from email.utils import parseaddr
+from rest_framework.exceptions import MethodNotAllowed
 
 from .constants import (
     MSG_EMAIL_INVALID,
@@ -23,3 +24,25 @@ def validate_email(email):
         #email is invalid
         return False, MSG_EMAIL_INVALID
     return True, None
+
+class MethodSerializerView(object):
+    '''
+    Utility class for get different serializer class by method.
+    For example:
+    method_serializer_classes = {
+        ('GET', ): MyModelListViewSerializer,
+        ('PUT', 'PATCH'): MyModelCreateUpdateSerializer
+    }
+    '''
+    method_serializer_classes = None
+
+    def get_serializer_class(self):
+        assert self.method_serializer_classes is not None, (
+            f'Expected view {self.__class__.__name__} should contain method_serializer_classes '
+            'to get right serializer class.' 
+        )
+        for methods, serializer_cls in self.method_serializer_classes.items():
+            if self.request.method in methods:
+                return serializer_cls
+
+        raise MethodNotAllowed(self.request.method)
