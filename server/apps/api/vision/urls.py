@@ -4,8 +4,8 @@ from .views import (
     VisionDatasetDetailAPIView,
     VisionDLModelAPIView,
     VisionDLModelDetailAPIView,
-    # CeleryAPIVIew,
-    # CheckProcessAPIView
+    CeleryAPIVIew,
+    CheckProcessAPIView
 )
 
 urlpatterns = [
@@ -13,8 +13,8 @@ urlpatterns = [
     path('datasets/<int:pk>', VisionDatasetDetailAPIView.as_view(), name='detail'),
     path('models', VisionDLModelAPIView.as_view(), name='list_models'),
     path('models/<int:pk>', VisionDLModelDetailAPIView.as_view(), name='detail_model'),
-    # path('models/train', CeleryAPIVIew.as_view()),
-    # path('models/<int:pk>', CheckProcessAPIView.as_view())
+    path('models/train', CeleryAPIVIew.as_view()),
+    path('checkprocess', CheckProcessAPIView.as_view())
     # path('models/<int:pk>/predict')
     # path('models/<int:pk>/)
 ]
